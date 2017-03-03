@@ -1,7 +1,7 @@
 /**
  * @see https://github.com/pana-cc/mocha-typescript
  */
-import {test, suite} from 'mocha-typescript';
+import { test, suite } from 'mocha-typescript';
 
 /**
  * @see http://unitjs.com/
@@ -9,7 +9,7 @@ import {test, suite} from 'mocha-typescript';
 import * as unit from 'unit.js';
 
 // element to test
-import {sayHello} from '../../src';
+import { sayHello } from '../../src';
 
 @suite('- Unit HelloWorldTest file')
 class HelloWorldTest {

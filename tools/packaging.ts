@@ -1,7 +1,7 @@
 // import libraries
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/observable/forkJoin";
-import "rxjs/add/operator/mergeMap";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/mergeMap';
 import * as fs from 'fs-extra';
 
 /**

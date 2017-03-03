@@ -9,8 +9,6 @@
         "test": "make test",
         "pretest": "make pretest",
         "coveralls": "make coveralls",
-        "clean": "make clean",
-        "tsc": "make tsc",
         "packaging": "make packaging",
         "prebuild": "make test && make clean",
         "build": "make tsc",
