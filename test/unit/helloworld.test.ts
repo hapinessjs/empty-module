@@ -14,6 +14,16 @@ import {sayHello} from '../../src';
 @suite('- Unit HelloWorldTest file')
 class HelloWorldTest {
     /**
+     * Function executed before the suite
+     */
+    static before() {}
+
+    /**
+     * Function executed after the suite
+     */
+    static after() {}
+
+    /**
      * Class constructor
      * New lifecycle
      */
@@ -28,16 +38,6 @@ class HelloWorldTest {
      * Function executed after each test
      */
     after() {}
-
-    /**
-     * Function executed before the suite
-     */
-    static before() {}
-
-    /**
-     * Function executed after the suite
-     */
-    static after() {}
 
     /**
      * Test if sayHello() is a function
