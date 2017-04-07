@@ -241,11 +241,11 @@ $ yarn add @{your_scope}/{your_module}
 //...
 ```
 
-### import `{MyModule}Module` from the library
+### import `<MyModule>Module` from the library
 
 ```javascript
 import { Hapiness, HapinessModule } from '@hapiness/core';
-import { {MyModule}Module } from '@{your_scope}/{your_module}';
+import { <MyModule>Module } from '@{your_scope}/{your_module}';
 
 @HapinessModule({
     version: '1.0.0',
@@ -254,7 +254,7 @@ import { {MyModule}Module } from '@{your_scope}/{your_module}';
         port: 4443
     },
     imports: [
-        {MyModule}Module
+        <MyModule>Module
     ]
 })
 class HapinessModuleApp {}
