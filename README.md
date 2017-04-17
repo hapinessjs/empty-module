@@ -270,11 +270,12 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
-* v1.0.0 (2017-04-17)
+* v1.0.0-beta.2 (2017-04-17)
     * Create `hello-world` **module** with `GET` **route** and **service** to say hello.
     * Create **tests** for each component and the integration of the module inside [Hapiness](https://github.com/hapinessjs/hapiness) application.
     * Module **guideline** style.
     * Documentation.
+    * Module version related to core version
     
 [Back to top](#table-of-contents)
 
