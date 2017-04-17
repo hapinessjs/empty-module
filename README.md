@@ -35,7 +35,7 @@
 
 This package provides basics to create a new [Hapiness](https://github.com/hapinessjs/hapiness) module.
 
-Implementations of all existing [Hapiness' features](https://github.com/hapinessjs/hapiness/blob/master/API.md) are done and according tests too.
+Implementations of [Hapiness' route and service](https://github.com/hapinessjs/hapiness/blob/master/API.md) are done and related tests too.
 
 ## Table of contents
 
@@ -235,7 +235,7 @@ $ yarn add @{your_scope}/{your_module}
 ```javascript
 "dependencies": {
     "@hapiness/core": "^1.0.0-beta.2",
-    "@{your_scope}/{your_module}": "^1.0.0",
+    "@{your_scope}/{your_module}": "^1.0.0-beta.2",
     //...
 }
 //...
@@ -270,7 +270,7 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
-* v1.0.0 (2017-04-07)
+* v1.0.0 (2017-04-17)
     * Create `hello-world` **module** with `GET` **route** and **service** to say hello.
     * Create **tests** for each component and the integration of the module inside [Hapiness](https://github.com/hapinessjs/hapiness) application.
     * Module **guideline** style.
