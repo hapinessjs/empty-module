@@ -64,7 +64,7 @@ Implementations of [Hapiness' route and service](https://github.com/hapinessjs/h
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0-beta.2) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
