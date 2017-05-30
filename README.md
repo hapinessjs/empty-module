@@ -64,7 +64,7 @@ Implementations of [Hapiness' route and service](https://github.com/hapinessjs/h
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0-beta.2) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0-beta.6) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -234,8 +234,8 @@ $ yarn add @{your_scope}/{your_module}
     
 ```javascript
 "dependencies": {
-    "@hapiness/core": "^1.0.0-beta.2",
-    "@{your_scope}/{your_module}": "^1.0.0-beta.2",
+    "@hapiness/core": "^1.0.0-beta.6",
+    "@{your_scope}/{your_module}": "^1.0.0-beta.6",
     //...
 }
 //...
@@ -270,6 +270,11 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
+* v1.0.0-beta.6 (2017-05-26)
+    * Latest packages' versions.
+    * Fix new typings for HapiJS.
+    * New packaging script.
+    * Module version related to core version.
 * v1.0.0-beta.2 (2017-04-17)
     * Create `hello-world` **module** with `GET` **route** and **service** to say hello.
     * Create **tests** for each component and the integration of the module inside [Hapiness](https://github.com/hapinessjs/hapiness) application.
