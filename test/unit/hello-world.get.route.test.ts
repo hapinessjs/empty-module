@@ -9,7 +9,7 @@ import { test, suite } from 'mocha-typescript';
 import * as unit from 'unit.js';
 
 import { ReplyNoContinue } from '@hapiness/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 // element to test
 import { HelloWorldService } from '../../src';
