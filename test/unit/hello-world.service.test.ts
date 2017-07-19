@@ -60,8 +60,8 @@ class HelloWorldServiceTest {
      * Test if `HelloWorldService.sayHello()` function returns an Observable
      */
     @test('- `HelloWorldService.sayHello()` function must return an Observable')
-    testHelloWorldServiceSayHelloObservable() {
-        unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable);
+    testHelloWorldServiceSayHelloObservable(done) {
+        unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable).when(_ => done());
     }
     /**
      * Test if `HelloWorldService.sayHello()` Observable returns 'Hello World'

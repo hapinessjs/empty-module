@@ -64,7 +64,7 @@ Implementations of [Hapiness' route and service](https://github.com/hapinessjs/h
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0-beta.6) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0-rc.6) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -234,8 +234,8 @@ $ yarn add @{your_scope}/{your_module}
     
 ```javascript
 "dependencies": {
-    "@hapiness/core": "^1.0.0-beta.6",
-    "@{your_scope}/{your_module}": "^1.0.0-beta.6",
+    "@hapiness/core": "^1.0.0-rc.6",
+    "@{your_scope}/{your_module}": "^1.0.0-rc.6",
     //...
 }
 //...
@@ -249,17 +249,15 @@ import { <MyModule>Module } from '@{your_scope}/{your_module}';
 
 @HapinessModule({
     version: '1.0.0',
-    options: {
-        host: '0.0.0.0',
-        port: 4443
-    },
     imports: [
         <MyModule>Module
     ]
 })
 class HapinessModuleApp {}
 
-Hapiness.bootstrap(HapinessModuleApp);
+Hapiness.bootstrap(HapinessModuleApp, [
+    HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 })
+]);
 ```
 
 ### use it anywhere
@@ -270,6 +268,10 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
+* v1.0.0-rc.6 (2017-07-19)
+    * Latest packages' versions.
+    * Update tests to match with latest `core` version.
+    * Project version related to core version.
 * v1.0.0-beta.6 (2017-05-26)
     * Latest packages' versions.
     * Fix new typings for HapiJS.
@@ -293,13 +295,13 @@ If your **module** contains **route** just call specific `endpoint` to see the r
     <tr>
         <td align="center"><a href="https://github.com/Juneil"><img src="https://avatars3.githubusercontent.com/u/6546204?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/antoinegomez"><img src="https://avatars3.githubusercontent.com/u/997028?v=3&s=117" width="117"/></a></td>
-        <td align="center"><a href="https://github.com/srz09"><img src="https://avatars3.githubusercontent.com/u/6841511?v=3&s=117" width="117"/></a></td>
+        <td align="center"><a href="https://github.com/reptilbud"><img src="https://avatars3.githubusercontent.com/u/6841511?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/njl07"><img src="https://avatars3.githubusercontent.com/u/1673977?v=3&s=117" width="117"/></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil">Julien Fauville</a></td>
         <td align="center"><a href="https://github.com/antoinegomez">Antoine Gomez</a></td>
-        <td align="center"><a href="https://github.com/srz09">Sébastien Ritz</a></td>
+        <td align="center"><a href="https://github.com/reptilbud">Sébastien Ritz</a></td>
         <td align="center"><a href="https://github.com/njl07">Nicolas Jessel</a></td>
     </tr>
 </table>

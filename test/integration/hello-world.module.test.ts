@@ -8,7 +8,7 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Hapiness, HapinessModule, HttpServer, Lib, OnStart } from '@hapiness/core';
+import { Hapiness, HapinessModule, HttpServerExt, Server, Lib, OnStart, Inject } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 // element to test
@@ -49,24 +49,22 @@ class HelloWorldModuleTest {
     testSayHelloGetRoute(done) {
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             imports: [
                 HelloWorldModule
             ]
         })
-        class HelloWorldModuleTest implements OnStart {
-            constructor(private _httpServer: HttpServer) {}
+        class HWMTest implements OnStart {
+            constructor(@Inject(HttpServerExt) private _httpServer: Server) {}
 
             onStart(): void {
-                this._httpServer.instance.inject('/sayHello', reply => unit.string(reply.result).is('Hello World')
-                        .when(_ => Hapiness.kill().subscribe(__ => done())));
+                this._httpServer.inject('/sayHello', reply => unit.string(reply.result).is('Hello World')
+                        .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done())));
             }
         }
 
-        Hapiness.bootstrap(HelloWorldModuleTest);
+        Hapiness.bootstrap(HWMTest, [
+            HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 })
+        ]);
     }
 
     /**
@@ -78,16 +76,12 @@ class HelloWorldModuleTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 unit.object(this._helloWorldService).isInstanceOf(HelloWorldService)
-                    .when(_ => Hapiness.kill().subscribe(__ => done()));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             imports: [
                 HelloWorldModule
             ],
@@ -95,9 +89,11 @@ class HelloWorldModuleTest {
                 HelloWorldLib
             ]
         })
-        class HelloWorldModuleTest {}
+        class HWMTest {}
 
-        Hapiness.bootstrap(HelloWorldModuleTest);
+        Hapiness.bootstrap(HWMTest, [
+            HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 })
+        ]);
     }
 
     /**
@@ -109,16 +105,12 @@ class HelloWorldModuleTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 unit.function(this._helloWorldService.sayHello)
-                    .when(_ => Hapiness.kill().subscribe(__ => done()));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             imports: [
                 HelloWorldModule
             ],
@@ -126,9 +118,11 @@ class HelloWorldModuleTest {
                 HelloWorldLib
             ]
         })
-        class HelloWorldModuleTest {}
+        class HWMTest {}
 
-        Hapiness.bootstrap(HelloWorldModuleTest);
+        Hapiness.bootstrap(HWMTest, [
+            HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 })
+        ]);
     }
 
     /**
@@ -140,16 +134,12 @@ class HelloWorldModuleTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable)
-                    .when(_ => Hapiness.kill().subscribe(__ => done()));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             imports: [
                 HelloWorldModule
             ],
@@ -157,9 +147,11 @@ class HelloWorldModuleTest {
                 HelloWorldLib
             ]
         })
-        class HelloWorldModuleTest {}
+        class HWMTest {}
 
-        Hapiness.bootstrap(HelloWorldModuleTest);
+        Hapiness.bootstrap(HWMTest, [
+            HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 })
+        ]);
     }
 
     /**
@@ -171,16 +163,12 @@ class HelloWorldModuleTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World')
-                        .when(_ => Hapiness.kill().subscribe(__ => done())));
+                        .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done())));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             imports: [
                 HelloWorldModule
             ],
@@ -188,8 +176,10 @@ class HelloWorldModuleTest {
                 HelloWorldLib
             ]
         })
-        class HelloWorldModuleTest {}
+        class HWMTest {}
 
-        Hapiness.bootstrap(HelloWorldModuleTest);
+        Hapiness.bootstrap(HWMTest, [
+            HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 })
+        ]);
     }
 }
