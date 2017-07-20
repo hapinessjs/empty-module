@@ -69,7 +69,8 @@
     },
     "homepage": "https://github.com/hapinessjs/empty-module#readme",
     "dependencies": {
-        "debug": "^2.6.8"
+        "debug": "^2.6.8",
+        "@types/node": "^8.0.14"
     },
     "devDependencies": {
         "@hapiness/core": "^1.0.0-rc.6",
