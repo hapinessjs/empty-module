@@ -64,7 +64,7 @@ Implementations of [Hapiness' route and service](https://github.com/hapinessjs/h
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.0.0-rc.6) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.1.0) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -143,7 +143,7 @@ Export it with `barrels` index at the root of `src/module`.
 
 ### Services
 
-All **services** files must be inside `src/module/services` folder and named `{my-service}.service.ts`. Class will be `{MyService}Service`.
+All **services** files must be inside `src/module/services/{my-service}` folder and named `{my-service}.service.ts`. Class will be `{MyService}Service`.
 
 **Service** needs to have `@Inject()` **decorator** and be added inside **module** `metadata`'s **providers** array.
 
@@ -155,15 +155,31 @@ If your **service** needs to be **exported** by your module to be **accessible i
 
 ### Routes
 
-All **routes** files must be inside `src/module/routes` folder and organize by **resources**. In each resource folder, you need to create `barrels` index and  **method** file named `{method}.route.ts`. Class will be `{MethodResource}Route`.
+All **routes** files must be inside `src/module/routes` folder and organize by **resources**. In each resource folder, you need to create `barrels` index and  **method** folder. In each method folder, you need to create `barrels` index and **type** file named `{type}.route.ts`. Class will be `{MethodTypeResource}Route`.
 
 **Route** needs to have `@Route({...})` **decorator** and be added inside **module** `metadata`'s **declarations** array.
 
 Export it with `barrels` index at the root of `src/module/routes`.
 
+Example of path for the route to get one user :
+
+```bash
+$ src/module/routes/user/get/one.route.ts
+```
+
+Implementation of the route will be :
+
+```javascript
+@Route({
+    path: '/user/{id}',
+    method: 'GET'
+})
+export class GetOneUserRoute implements OnGet {}
+```
+
 ### Libraries
 
-All **libraries** files must be inside `src/module/libraries` folder and named `{my-library}.library.ts`. Class will be `{MyLibrary}Library`.
+All **libraries** files must be inside `src/module/libraries/{my-library}` folder and named `{my-library}.library.ts`. Class will be `{MyLibrary}Library`.
 
 **Library** needs to have `@Lib()` **decorator** and be added inside **module** `metadata`'s **declarations** array.
 
@@ -177,9 +193,9 @@ You must **unit** test each **service**, **route** and **library**.
 
 Your **module** must be tested with an **integration** in `Hapiness` server application.
 
-Each file name will be suffixed by `test`: `{my-module}.module.test.ts`, `{my-service}.service.test.ts`, `{resource}.{method}.route.test.ts` or `{my-library}.library.test.ts`.
+Each file name will be suffixed by `test`: `{my-module}.module.test.ts`, `{my-service}.service.test.ts`, `{resource}.{method}.{type}.route.test.ts` or `{my-library}.library.test.ts`.
 
-Classes will be suffixed by `Test`: `{MyModule}ModuleTest`, `{MyService}ServiceTest`, `{MethodResource}RouteTest` or `{MyLibrary}LibraryTest`.
+Classes will be suffixed by `Test`: `{MyModule}ModuleTest`, `{MyService}ServiceTest`, `{MethodTypeResource}RouteTest` or `{MyLibrary}LibraryTest`.
 
 To **run** your tests, just execute:
 
@@ -225,17 +241,18 @@ $ npm publish (--access public => if scoped package)
 ### `yarn` or `npm` it in your `package.json`
 
 ```bash
-$ npm install --save @{your_scope}/{your_module}
+$ npm install --save @hapiness/core @{your_scope}/{your_module} rxjs
 
 or
 
-$ yarn add @{your_scope}/{your_module}
+$ yarn add  @hapiness/core @{your_scope}/{your_module} rxjs
 ```
     
 ```javascript
 "dependencies": {
-    "@hapiness/core": "^1.0.0-rc.6",
-    "@{your_scope}/{your_module}": "^1.0.0-rc.6",
+    "@hapiness/core": "^1.1.0",
+    "@{your_scope}/{your_module}": "^1.0.0",
+    "rxjs": "^5.4.3"
     //...
 }
 //...
@@ -268,21 +285,10 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
-* v1.0.0-rc.6 (2017-07-19)
+* v1.1.0 (2017-10-20)
     * Latest packages' versions.
     * Update tests to match with latest `core` version.
     * Project version related to core version.
-* v1.0.0-beta.6 (2017-05-26)
-    * Latest packages' versions.
-    * Fix new typings for HapiJS.
-    * New packaging script.
-    * Module version related to core version.
-* v1.0.0-beta.2 (2017-04-17)
-    * Create `hello-world` **module** with `GET` **route** and **service** to say hello.
-    * Create **tests** for each component and the integration of the module inside [Hapiness](https://github.com/hapinessjs/hapiness) application.
-    * Module **guideline** style.
-    * Documentation.
-    * Module version related to core version
     
 [Back to top](#table-of-contents)
 
@@ -290,7 +296,7 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 <table>
     <tr>
-        <td colspan="4" align="center"><a href="https://www.tadaweb.com"><img src="https://tadaweb.com/images/tadaweb/logo.png" width="117" alt="tadaweb" /></a></td>
+        <td colspan="4" align="center"><a href="https://www.tadaweb.com"><img src="http://bit.ly/2xHQkTi" width="117" alt="tadaweb" /></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil"><img src="https://avatars3.githubusercontent.com/u/6546204?v=3&s=117" width="117"/></a></td>

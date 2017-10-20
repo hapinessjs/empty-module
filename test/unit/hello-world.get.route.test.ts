@@ -8,7 +8,6 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { ReplyNoContinue } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 // element to test
@@ -63,21 +62,10 @@ class GetHelloWorldRouteTest {
     }
 
     /**
-     * Test if `GetHelloWorldRoute.onGet()` function call `reply` to send response
+     * Test if `GetHelloWorldRoute.onGet()` function returns an Observable
      */
-    @test('- `GetHelloWorldRoute.onGet()` function must have a callback function returns `Hello World`')
-    testGetHelloWorldRouteOnGetReply(done) {
-        this._helloWorldServiceMock.expects('sayHello').returns(Observable.create(observer => {
-            observer.next('Hello World');
-            observer.complete();
-        }));
-
-        this._getHelloWorldRoute.onGet(null, <ReplyNoContinue>(res => {
-            unit.string(res).is('Hello World').when(_ => {
-                this._helloWorldServiceMock.verify();
-                this._helloWorldServiceMock.restore();
-                done();
-            })
-        }));
+    @test('- `GetHelloWorldRoute.onGet()` function must return an Observable')
+    testGetHelloWorldRouteOnGetObservable(done) {
+        unit.object(this._getHelloWorldRoute.onGet(null, null)).isInstanceOf(Observable).when(_ => done());
     }
 }
