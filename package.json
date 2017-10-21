@@ -81,15 +81,15 @@
         "mocha": "^3.4.2",
         "mocha-typescript": "^1.1.11",
         "rimraf": "^2.6.2",
-        "rxjs": "^5.4.3",
+        "rxjs": "^5.5.0",
         "ts-node": "^3.3.0",
-        "tslint": "^5.7.0",
+        "tslint": "^5.8.0",
         "typescript": "^2.5.3",
         "unit.js": "^2.0.0"
     },
     "peerDependencies": {
         "@hapiness/core": "^1.1.0",
-        "rxjs": "^5.4.3"
+        "rxjs": "^5.5.0"
     },
     "engines": {
         "node": ">=7.0.0"
