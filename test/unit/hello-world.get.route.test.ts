@@ -66,6 +66,6 @@ class GetHelloWorldRouteTest {
      */
     @test('- `GetHelloWorldRoute.onGet()` function must return an Observable')
     testGetHelloWorldRouteOnGetObservable(done) {
-        unit.object(this._getHelloWorldRoute.onGet(null, null)).isInstanceOf(Observable).when(_ => done());
+        unit.object(this._getHelloWorldRoute.onGet(null)).isInstanceOf(Observable).when(_ => done());
     }
 }
