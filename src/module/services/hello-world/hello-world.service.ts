@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@hapiness/core';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class HelloWorldService {
@@ -8,9 +9,6 @@ export class HelloWorldService {
      * @return {Observable<string>}
      */
     sayHello(): Observable<string> {
-        return Observable.create(observer => {
-            observer.next('Hello World');
-            observer.complete();
-        });
+        return of('Hello World');
     }
 }

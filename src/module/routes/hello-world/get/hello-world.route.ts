@@ -1,4 +1,4 @@
-import { OnGet, Route, ReplyNoContinue, Request } from '@hapiness/core';
+import { OnGet, Route, Request } from '@hapiness/core';
 import { HelloWorldService } from '../../../services';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,10 +15,10 @@ export class GetHelloWorldRoute implements OnGet {
 
     /**
      * OnGet implementation
+     *
      * @param request
-     * @param reply
      */
-    onGet(request: Request, reply: ReplyNoContinue): Observable<any> {
+    onGet(request: Request): Observable<string> {
         return this._helloWorldService.sayHello();
     }
 }
