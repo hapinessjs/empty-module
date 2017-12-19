@@ -3,7 +3,7 @@ import { GetHelloWorldRoute } from './routes';
 import { HelloWorldService } from './services';
 
 @HapinessModule({
-    version: '1.1.0',
+    version: '1.1.1',
     declarations: [
         GetHelloWorldRoute
     ],

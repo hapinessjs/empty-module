@@ -250,9 +250,9 @@ $ yarn add  @hapiness/core @{your_scope}/{your_module} rxjs
     
 ```javascript
 "dependencies": {
-    "@hapiness/core": "^1.1.0",
+    "@hapiness/core": "^1.3.0",
     "@{your_scope}/{your_module}": "^1.0.0",
-    "rxjs": "^5.4.3"
+    "rxjs": "^5.5.5"
     //...
 }
 //...
@@ -285,6 +285,10 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
+* v1.1.1 (2017-12-19)
+    * Latest packages' versions.
+    * New build process
+    * Documentation
 * v1.1.0 (2017-10-20)
     * Latest packages' versions.
     * Update tests to match with latest `core` version.
