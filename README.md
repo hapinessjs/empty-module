@@ -64,7 +64,7 @@ Implementations of [Hapiness' route and service](https://github.com/hapinessjs/h
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.1.0) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/empty-module/releases/tag/v1.1.2) and change `hapinessjs/empty-module` and `@hapiness/empty-module`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -250,9 +250,9 @@ $ yarn add  @hapiness/core @{your_scope}/{your_module} rxjs
     
 ```javascript
 "dependencies": {
-    "@hapiness/core": "^1.3.0",
+    "@hapiness/core": "^1.5.0",
     "@{your_scope}/{your_module}": "^1.0.0",
-    "rxjs": "^5.5.5"
+    "rxjs": "^5.5.8"
     //...
 }
 //...
@@ -285,6 +285,8 @@ If your **module** contains **route** just call specific `endpoint` to see the r
 
 ## Change History
 
+* v1.1.2 (2018-04-03)
+    * Latest packages' versions.
 * v1.1.1 (2017-12-19)
     * Latest packages' versions.
     * New build process
